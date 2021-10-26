@@ -22,7 +22,8 @@ public class ReproExampleTest {
     public void demonstration() {
         try (
             // customize the creation of a container as required
-            GenericContainer<?> container = new GenericContainer<>(DockerImageName.parse("redis:6.0.5"))
+            GenericContainer<?> container = new GenericContainer<>(DockerImageName.parse("openjdk:8-jre-slim"))
+                    .withCommand("sleep infinity")
                     .withExposedPorts(6379)
         ) {
             container.start();
